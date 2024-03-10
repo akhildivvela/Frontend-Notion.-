@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Your existing styles */
+
+        .main-container {
+            font-family: Verdana, Geneva, sans-serif; /* Changed font */
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: #f0f0f0; /* Changed background color */
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            width: 30%;
+            background-color: #fff;
+        }
+
+        .heading {
+            color: #333; /* Changed heading color */
+            margin-bottom: 20px;
+        }
+
+        .task-container {
+            min-height: 50px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            overflow: auto;
+        }
+
+        .task {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px;
+            margin-bottom: 8px;
+            cursor: move;
+        }
+
+        .add-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Changed add button color */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .add-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.2);
+        }
+
+        .delete-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #dc3545; /* Changed delete button color */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #c9302c;
+            transform: scale(1.2);
+        }
+
+        .task img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container" id="not-started-container">
+            <h2 class="heading">Not Started (<span class="task-count">0</span>)</h2>
+            <div class="task-container" ondrop="dropTask(event)" ondragover="allowDropTask(event)">
+                <!-- Task cards go here -->
+                <div class="task" draggable="true">
+                    Task 1
+                    <img src="https://via.placeholder.com/150" alt="Task 1 Image"> <!-- Add image -->
+                </div>
+            </div>
+            <button class="add-button" onclick="addNewTaskToContainer('not-started-container')">+ New</button>
+            <button class="delete-button" onclick="deleteAllTasks('not-started-container')">Delete All Tasks</button>
+        </div>
+
+        <!-- Other containers with similar modifications -->
+
+        <div class="modal-container" id="myModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeTaskDetailsModal()">&times;</span>
+                <h2>Edit Task</h2>
+                <input type="text" id="editedTaskTitle" placeholder="Enter new task title">
+                <button onclick="saveEditedTaskTitle()">Save Changes</button>
+            </div>
+        </div>
+
+        <button class="reset-button" onclick="resetTaskBoard()">Reset All Tasks</button>
+    </div>
+
+    <script>
+        // Your existing JavaScript code
+    </script>
+</body>
+
+</html>
